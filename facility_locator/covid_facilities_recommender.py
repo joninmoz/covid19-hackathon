@@ -65,7 +65,7 @@ def generate_list_of_providers(latitude, longitude, boolean_parameters):
     return final_providers.to_json(orient='index')
 
 if __name__ == "__main__":
-    generate_list_of_providers(10.638705,8.647129, {'TestingAvailability': True, 'BedAvailability': False, 'VentilatorAvailability': False})
+    generate_list_of_providers(6.590689, 3.9765358, {'TestingAvailability': True, 'BedAvailability': False, 'VentilatorAvailability': False})
 
     # path = os.getcwd()
     # df = pd.read_csv(path + "\\covid_data\\hotosm_nga_health_facilities_points.csv", index_col=False)
