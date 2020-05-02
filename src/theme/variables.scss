@@ -1,7 +1,23 @@
 // Ionic Variables and Theming. For more info, please see:
+<<<<<<< HEAD
 // http://ionicframework.com/docs/v2/theming/
 $font-path: "../assets/fonts";
 
+=======
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+>>>>>>> 174c3bc8f553f0bbf1c8c5ffb58b45163af717f0
 @import "ionic.globals";
 
 
@@ -10,10 +26,16 @@ $font-path: "../assets/fonts";
 // To customize the look and feel of this app, you can override
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
+<<<<<<< HEAD
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
 $text-color:        #000;
 $background-color:  #fff;
+=======
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+>>>>>>> 174c3bc8f553f0bbf1c8c5ffb58b45163af717f0
 
 
 // Named Color Variables
@@ -67,7 +89,11 @@ $colors: (
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
+<<<<<<< HEAD
 // http://ionicframework.com/docs/v2/ionicons/
+=======
+// http://ionicframework.com/docs/ionicons/
+>>>>>>> 174c3bc8f553f0bbf1c8c5ffb58b45163af717f0
 
 @import "ionic.ionicons";
 
