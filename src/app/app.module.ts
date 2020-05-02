@@ -28,7 +28,7 @@ export function provideSettings(storage: Storage) {
    */
   return new Settings(storage, {
     option1: true,
-    option2: 'Ionitron J. Framework',
+    option2: 'Covid Hackathon',
     option3: '3',
     option4: 'Hello'
   });
@@ -59,7 +59,6 @@ export function provideSettings(storage: Storage) {
     Api,
     Items,
     User,
-    Camera,
     SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
