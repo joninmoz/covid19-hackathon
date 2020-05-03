@@ -22,12 +22,20 @@ export class MapPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MapPage');
-    this.loadMap();
+    this.loadMap({'longitude': 10.573803999999999, 'latitude': 7.4053223,
+    'TestingAvailability': true, 'BedAvailability': false, 'VentilatorAvailability': false});
   }
-  loadMap(){
+  loadMap(params){
     console.log("loadMap called");
+    let long = params['longitude']
+    let lat = params['latitude']
+    let testing = params['TestingAvailability']
+    let bed = params['BedAvailability']
+    let ventilator = params['VentilatorAvailability']
+    console.log(testing, typeof testing)
     let latLng = new google.maps.LatLng(this.lat, this.lng);
-    this.http.get(`http://localhost:8008/?longitude=8.4053223&latitude=10.573803999999999&TestingAvailability=False&BedAvailability=False&VentilatorAvailability=False`).subscribe(val => {
+    this.http.get(`http://localhost:8008/?longitude=` + long + `&latitude=` + lat +
+    `&TestingAvailability=` + testing + `&BedAvailability=` + bed + `&VentilatorAvailability=` + ventilator).subscribe(val => {
       let mapOptions = {
       zoom: 11,
       center: latLng,
@@ -51,7 +59,10 @@ export class MapPage {
       markers.push(marker);
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(val[Object.keys(val)[i]]['Name']);
+          console.log(lat)
+          var search_url = 'https://www.google.com/maps/dir/?api=1&destination=' + val[Object.keys(val)[i]]['latitude'].toString() + "," + val[Object.keys(val)[i]]['longitude'].toString() + '&origin=' + lat.toString() + "," + long.toString() + '&language=pt'
+          console.log(search_url)
+          infowindow.setContent(val[Object.keys(val)[i]]['Name'] + '<a href=' + search_url + '><button>Go!</button></a>');
           infowindow.open(map, marker);
         }
       })(marker, i));
