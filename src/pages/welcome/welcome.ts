@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -12,12 +13,39 @@ import { IonicPage, NavController } from 'ionic-angular';
   selector: 'page-welcome',
   templateUrl: 'welcome.html'
 })
+
+
+
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController) { }
+  checkLangEN:boolean;
+  checkLangYB:boolean;
+  
+
+  constructor(
+    public navCtrl: NavController,
+    public translate: TranslateService
+    ) {
+      this.translate.currentLang == 'en' ? this.checkLangEN = true : this.checkLangYB = true;
+      this.translate.use('yb');
+     }
 
   login() {
     this.navCtrl.push('LoginPage');
+  }
+
+  langChange(language){
+    this.translate.use(language);
+
+    console.log("LangChange Test", language);
+
+    if(language == 'en'){ 
+      this.checkLangEN = true;
+      this.checkLangYB = false; 
+    }else{
+      this.checkLangYB = true;
+      this.checkLangEN = false;
+    }
   }
 
   signup() {

@@ -75,9 +75,9 @@ export class MyApp {
         this.translate.use(this.translate.getBrowserLang());
       }
     } else {
-      this.translate.use('en'); // Set your language here
+      this.translate.use('yb'); // Set your language here
     }
-
+    this.translate.use('yb'); // Set your language here
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
       this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
     });
