@@ -52,6 +52,13 @@
 
   "CARDS_TITLE": "Social",
 
+  "TAGLINE": "Refer with Confidence",
+  "LOOKING_FOR": "I'm looking for a clinic / hospital with:",
+  "BEDS": "Beds",
+  "TESTS": "Tests",
+  "VENTILATORS": "Ventilators",
+  "GO_NOW": "Go Now",
+
   "SEARCH_TITLE": "Search",
   "SEARCH_PLACEHOLDER": "Search the items list"
 }

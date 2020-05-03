@@ -5,11 +5,48 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>referral</ion-title>
-  </ion-navbar>
+  <div class="language-bar">
+      <button class="language"  item-end color="dark" (click)="langChange('en')">
+        <ion-icon *ngIf="checkLangEN" name="checkmark">&nbsp;&nbsp; </ion-icon> English
+      </button>
+      <button class="language"  item-end color="dark" (click)="langChange('yb')">
+        <ion-icon *ngIf="checkLangYB" name="checkmark">&nbsp;&nbsp; </ion-icon> Yoruba
+      </button>
+
+    </div>
 </ion-header>
 
 <ion-content padding>
 
+  <div class="logo">
+    <img class="logo" src="assets/imgs/icon3.png" />
+  </div>
+  
+  <h1>HLink</h1>
+<h2>{{ "TAGLINE" | translate}}</h2>
+
+<p class="question">{{ "LOOKING_FOR" | translate }}</p>
+<ul>
+    <ion-item>
+      <ion-label>{{"BEDS"|translate}}</ion-label>
+        <ion-icon  item-end><img src="assets/imgs/furniture.png" height="20px"/>
+      </ion-icon>
+      <ion-checkbox color="dark" checked="false"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{"TESTS"|translate}}</ion-label>
+        <ion-icon item-end><img src="assets/imgs/healthcare-and-medical.png" height="20px"/>
+      </ion-icon>
+      <ion-checkbox color="dark" checked="false"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{"VENTILATORS"|translate}}</ion-label>
+      <ion-icon item-end>
+          <img src="assets/imgs/ventilator.png" height="20px"/>
+      </ion-icon>
+      <ion-checkbox color="dark" checked="false"></ion-checkbox>
+    </ion-item>
+</ul>
+
+<button ion-button full>{{"GO_NOW"|translate}}</button>
 </ion-content>
