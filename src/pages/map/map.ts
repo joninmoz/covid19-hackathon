@@ -28,7 +28,7 @@ export class MapPage {
     let latLng = new google.maps.LatLng(this.lat, this.lng);
 
     let mapOptions = {
-      zoom: 11,
+      zoom: 13,
       center: latLng,
       mapTypeId: 'terrain',
       styles: [
