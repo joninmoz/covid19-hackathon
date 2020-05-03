@@ -1,13 +1,23 @@
-<ion-content scroll="false">
-  <div class="splash-bg"></div>
-  <div class="splash-info">
-    <div class="splash-logo"></div>
-    <div class="splash-intro">
-      {{ 'WELCOME_INTRO' | translate }}
-    </div>
-  </div>
-  <div padding>
+<ion-header class="nav-header" no-border>
+    <ion-navbar transparent>
+      <ion-title color="light">
+        {{ "WELCOME_INTRO" | translate }}
+        <div class="language-bar">
+          <button class="language"  item-end color="dark" (click)="langChange('en')">
+            <ion-icon *ngIf="checkLangEN" name="checkmark">&nbsp;&nbsp; </ion-icon> English
+          </button>
+          <button class="language"  item-end color="dark" (click)="langChange('yb')">
+            <ion-icon *ngIf="checkLangYB" name="checkmark">&nbsp;&nbsp; </ion-icon> Yoruba
+          </button>
+
+        </div>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+
     <button ion-button block (click)="signup()">{{ 'SIGNUP' | translate }}</button>
     <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
-  </div>
+
 </ion-content>
