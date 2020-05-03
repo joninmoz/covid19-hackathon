@@ -44,13 +44,15 @@ def haversine(lon1, lat1, lon2, lat2):
     return c * r
 
 # This is the main function
-def generate_list_of_providers(latitude, longitude, boolean_parameters):
+def generate_list_of_providers(param):
     path = os.getcwd()
+    # print(calculate_manhattan_distance(InitialLocation(float(param['latitude'][0]), float(param['longitude'][0])), ProviderLocation('501276014', float(param['latitude'][0]), float(param['longitude'][0]))))
     providers = pd.read_csv(path + "\\covid_data\\hotosm_nga_health_facilities_points.csv", index_col=False)
-    providers = providers[providers['TestingAvailability'] == boolean_parameters['TestingAvailability']] if boolean_parameters['TestingAvailability'] else providers
-    providers = providers[providers['BedAvailability'] == boolean_parameters['BedAvailability']] if boolean_parameters['BedAvailability'] else providers
-    providers = providers[providers['VentilatorAvailability'] == boolean_parameters['VentilatorAvailability']] if boolean_parameters['VentilatorAvailability'] else providers
-    initial_location = InitialLocation(latitude, longitude)
+    print(param)
+    providers = providers[providers['TestingAvailability'] == (param['TestingAvailability'][0] == "True")] if (param['TestingAvailability'][0]== "True") else providers
+    providers = providers[providers['BedAvailability'] == (param['BedAvailability'][0] == "True")] if (param['BedAvailability'][0]== "True") else providers
+    providers = providers[providers['VentilatorAvailability'] == (param['VentilatorAvailability'][0]== "True")] if (param['VentilatorAvailability'][0]== "True") else providers
+    initial_location = InitialLocation(float(param['latitude'][0]), float(param['longitude'][0]))
     provider_locations = []
     for index, row in providers.iterrows():
         provider_locations.append(ProviderLocation(row['osm_id'], row['latitude'], row['longitude']))
@@ -65,8 +67,8 @@ def generate_list_of_providers(latitude, longitude, boolean_parameters):
     return final_providers.to_json(orient='index')
 
 if __name__ == "__main__":
-    generate_list_of_providers(6.590689, 3.9765358, {'TestingAvailability': True, 'BedAvailability': False, 'VentilatorAvailability': False})
 
+    generate_list_of_providers({'longitude': ['3.9391127'], 'latitude': ['6.6010898'], 'TestingAvailability': ['True'], 'BedAvailability': ['False'], 'VentilatorAvailability': ['True']})
     # path = os.getcwd()
     # df = pd.read_csv(path + "\\covid_data\\hotosm_nga_health_facilities_points.csv", index_col=False)
     # df = df.loc[df['VentilatorAvailability'] == True]
