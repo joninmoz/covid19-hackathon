@@ -21,12 +21,12 @@ export class MapPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MapPage');
+    console.log('ionViewDidLoad MapPage', this.navParams.data);
     this.loadMap({'longitude': 10.573803999999999, 'latitude': 7.4053223,
-    'TestingAvailability': true, 'BedAvailability': false, 'VentilatorAvailability': false});
+    'TestingAvailability': this.navParams.data.values.tests, 'BedAvailability': this.navParams.data.values.beds, 'VentilatorAvailability': this.navParams.data.values.ventilators});
   }
   loadMap(params){
-    console.log("loadMap called");
+    console.log("loadMap called", params);
     let long = params['longitude']
     let lat = params['latitude']
     let testing = params['TestingAvailability']

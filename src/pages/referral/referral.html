@@ -25,28 +25,30 @@
   <h1>HLink</h1>
 <h2>{{ "TAGLINE" | translate}}</h2>
 
-<p class="question">{{ "LOOKING_FOR" | translate }}</p>
-<ul>
-    <ion-item>
-      <ion-label>{{"BEDS"|translate}}</ion-label>
-        <ion-icon  item-end><img src="assets/imgs/furniture.png" height="20px"/>
-      </ion-icon>
-      <ion-checkbox color="dark" checked="false"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{"TESTS"|translate}}</ion-label>
-        <ion-icon item-end><img src="assets/imgs/healthcare-and-medical.png" height="20px"/>
-      </ion-icon>
-      <ion-checkbox color="dark" checked="false"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{"VENTILATORS"|translate}}</ion-label>
-      <ion-icon item-end>
-          <img src="assets/imgs/ventilator.png" height="20px"/>
-      </ion-icon>
-      <ion-checkbox color="dark" checked="false"></ion-checkbox>
-    </ion-item>
-</ul>
+<form [formGroup]="searchingForm" (ngSubmit)="submitForm(searchingForm.value)">
+  <p class="question">{{ "LOOKING_FOR" | translate }}</p>
+  <ul>
+      <ion-item>
+        <ion-label>{{"BEDS"|translate}}</ion-label>
+          <ion-icon  item-end><img src="assets/imgs/furniture.png" height="20px"/>
+        </ion-icon>
+        <ion-checkbox color="dark" formControlName="beds"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{"TESTS"|translate}}</ion-label>
+          <ion-icon item-end><img src="assets/imgs/healthcare-and-medical.png" height="20px"/>
+        </ion-icon>
+        <ion-checkbox color="dark" formControlName="tests"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{"VENTILATORS"|translate}}</ion-label>
+        <ion-icon item-end>
+            <img src="assets/imgs/ventilator.png" height="20px"/>
+        </ion-icon>
+        <ion-checkbox color="dark" formControlName="ventilators"></ion-checkbox>
+      </ion-item>
+  </ul>
 
-<button ion-button full>{{"GO_NOW"|translate}}</button>
+  <button ion-button full type="submit">{{"GO_NOW"|translate}}</button>
+</form>
 </ion-content>
