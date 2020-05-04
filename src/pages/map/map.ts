@@ -34,8 +34,7 @@ export class MapPage {
     let ventilator = params['VentilatorAvailability']
     console.log(testing, typeof testing)
     let latLng = new google.maps.LatLng(this.lat, this.lng);
-    this.http.get(`http://localhost:8008/?longitude=` + long + `&latitude=` + lat +
-    `&TestingAvailability=` + testing + `&BedAvailability=` + bed + `&VentilatorAvailability=` + ventilator).subscribe(val => {
+    this.http.get("assets/data/hotosm_nga_health_facilities_points.json").subscribe(val => {
       let mapOptions = {
       zoom: 11,
       center: latLng,
